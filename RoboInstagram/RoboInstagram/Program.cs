@@ -1,29 +1,33 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
+using System.Linq;
+using System.Threading;
 
 namespace RoboInstagram
 {
     class Program
     {
+        const string url = "https://www.instagram.com/accounts/login/?source=auth_switcher";
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var driver = new ChromeDriver("C:\\Repositorios\\selenium-instagram\\bot-instagram-selenium");
+            driver.Navigate().GoToUrl(url);
 
-            var driver = new ChromeDriver("C:\\robo-instagram-selenium");
-            driver.Navigate().GoToUrl("https://www.instagram.com/accounts/login/?hl=pt-br/");
-            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
-            Teste(driver);
+            LogarInstagramSeguirPessoas(driver);
 
             driver.Quit();
         }
 
-        private static void Teste(ChromeDriver driver)
+        private static void LogarInstagramSeguirPessoas(ChromeDriver driver)
         {
+            var usuariosBuscar = new string[] { "spiderandersonsilva", "neymarjr", "maisa", "beyonce" };
+
             var email = "usuarioinstagram33@outlook.com";
             var senha = "123123abc";
-            var famoso = "spiderandersonsilva";
 
             var email_login = driver.FindElement(By.Name("username"));
             email_login.SendKeys(email);
@@ -33,25 +37,63 @@ namespace RoboInstagram
 
             driver.FindElement(By.ClassName("L3NKy")).Click();
 
-            var popup = driver.FindElement(By.ClassName("bIiDR"));
+            bool staleElement = true;
 
-            if(popup != null)
-                popup.Click();
+            while (staleElement)
+            {
+                try
+                {
+                    driver.FindElement(By.ClassName("bIiDR")).Click();
+                    staleElement = false;
+                }
+                catch (StaleElementReferenceException e)
+                {
+                    staleElement = true;
+                }
+            }
 
+            foreach (var usuario in usuariosBuscar)
+                SerguirPessoas(driver, usuario);
+        }
+
+        public static void SerguirPessoas(ChromeDriver driver, string famoso)
+        {
             var buscar = driver.FindElement(By.ClassName("x3qfX"));
             buscar.SendKeys(famoso);
 
             //esta vindo 2
-            driver.FindElement(By.XPath("//span[text()='Anderson \"The Spider\" Silva']")).Click();
+            Thread.Sleep(300);
+            driver.FindElement(By.XPath($"//span[text()='{famoso}']")).Click();
 
             driver.FindElement(By.CssSelector($"a[href='/{famoso}/followers/']")).Click();
 
-            var seguidores = driver.FindElements(By.ClassName("L3NKy"));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
-            foreach (var seguidor in seguidores)
+            // wait.Until(x => x.)
+
+            var staleElement = true;
+            while (staleElement)
             {
-                seguidor.Click();
-            };
+                try
+                {
+                    var seguidores = driver.FindElements(By.ClassName("y3zKF")).Take(5);
+
+                    foreach (var seguidor in seguidores)
+                    {
+                        Thread.Sleep(1000);
+                        seguidor.Click();
+                    };
+
+                    staleElement = false;
+                }
+                catch (StaleElementReferenceException e)
+                {
+                    staleElement = true;
+                }
+            }
+
+           driver.FindElement(By.ClassName("wpO6b")).Click();
+           Thread.Sleep(2000);
         }
     }
 }

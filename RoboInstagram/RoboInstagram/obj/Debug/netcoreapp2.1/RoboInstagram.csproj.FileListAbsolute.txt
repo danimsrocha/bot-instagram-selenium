@@ -9,3 +9,13 @@ C:\robo-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\R
 C:\robo-instagram-selenium\RoboInstagram\RoboInstagram\bin\Debug\netcoreapp2.1\RoboInstagram.pdb
 C:\robo-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.dll
 C:\robo-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.pdb
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.csprojAssemblyReference.cache
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.AssemblyInfoInputs.cache
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.AssemblyInfo.cs
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.dll
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\obj\Debug\netcoreapp2.1\RoboInstagram.pdb
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\bin\Debug\netcoreapp2.1\RoboInstagram.deps.json
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\bin\Debug\netcoreapp2.1\RoboInstagram.runtimeconfig.json
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\bin\Debug\netcoreapp2.1\RoboInstagram.runtimeconfig.dev.json
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\bin\Debug\netcoreapp2.1\RoboInstagram.dll
+C:\Repositorios\selenium-instagram\bot-instagram-selenium\RoboInstagram\RoboInstagram\bin\Debug\netcoreapp2.1\RoboInstagram.pdb
